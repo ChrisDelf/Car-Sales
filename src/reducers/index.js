@@ -16,5 +16,31 @@ const initialState = {
 };
 
 export const carReducer = (state = initialState, action) => {
-  return { ...state };
+  switch (action.type) {
+    case 'ADD_FEATURE':
+      console.log(state.car.features);
+      if (state.car.features.find(e => action.payload === e) === undefined) {
+        return {
+          ...state,
+          car: {
+            ...state.car,
+            features: [...state.car.features, action.payload]
+          }
+        };
+      }
+
+    case 'REMOVE_FEATURE':
+
+
+      return {
+          ...state,
+          car: {
+            ...state.car,
+            features: state.car.features.filter((e) => action.payload !== e.id)
+          }
+        };
+
+    default:
+      return { ...state };
+  }
 };
