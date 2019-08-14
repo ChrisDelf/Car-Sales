@@ -8,9 +8,6 @@ import Total from './components/Total';
 import { addNewFeature } from './actions';
 
 const App = props => {
-  const removeFeature = item => {
-    // dispatch an action here to remove an item
-  };
 
   return (
     <div className="boxes">
